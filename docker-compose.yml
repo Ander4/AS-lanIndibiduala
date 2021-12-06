@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+        rabbitmq:
+                image: rabbitmq:3-management
+                ports:
+                        - 5672:5672
+                        - 15672:15672
+                volumes:
+                        - ./data:/var/lib/rabbitmq/
+        cliente:
+                build:
+                        context: .
+                        dockerfile: Dockerfile
+                depends_on:
+                        - rabbitmq
+volumes: 
+        data:
