@@ -9,6 +9,7 @@ channel = connection.channel()
 
 channel.queue_declare(queue='hello')
 
-channel.basic_publish(exchange='', routing_key='hello', body='Enhorabuena, eres el cliente 1.000.000, pincha en el siguiente enlace para reclamar tu premio: https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-print(" [x] Sent 'Hola Mundo'")
+mensaje='Enhorabuena, eres el cliente 1.000.000, accede en el siguiente enlace para ver como reclamar tu premio: https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+channel.basic_publish(exchange='', routing_key='hello', body=mensaje)
+print(" [x] Sent ",mensaje)
 connection.close()
